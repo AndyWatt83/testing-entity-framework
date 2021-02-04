@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testing-entity-framework", "testing-entity-framework.csproj", "{732F21A1-AA5C-4394-A534-B79E13C4E42A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample-database", "..\samples\sample-database\sample-database\sample-database.csproj", "{011CEEF9-1AA4-4F74-AF79-2227BD337BB2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample-database", "..\samples\sample-database\sample-database.csproj", "{011CEEF9-1AA4-4F74-AF79-2227BD337BB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
