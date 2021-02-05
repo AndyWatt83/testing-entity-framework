@@ -46,25 +46,7 @@ namespace SampleDatabase.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql(File.ReadAllText("./Migrations/Scripts/migrate-author-down.sql"));
-
-            //migrationBuilder.DropForeignKey(
-            //    name: "FK_Posts_Author_AuthorId",
-            //    table: "Posts");
-
-            //migrationBuilder.DropIndex(
-            //    name: "IX_Posts_AuthorId",
-            //    table: "Posts");
-
-            //migrationBuilder.DropColumn(
-            //    name: "AuthorId",
-            //    table: "Posts");
-
-            //migrationBuilder.Sql("delete from Author");
-
-            //migrationBuilder.DropTable(
-            //    name: "Author");
-
-
+            // this doesn't work at all well with sqlite
         }
     }
 }
