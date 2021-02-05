@@ -56,6 +56,9 @@ namespace SampleDatabase.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("AuthorName")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("BlogId")
                         .HasColumnType("INTEGER");
 

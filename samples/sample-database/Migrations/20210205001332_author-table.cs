@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.IO;
 
 namespace SampleDatabase.Migrations
 {
@@ -6,15 +7,11 @@ namespace SampleDatabase.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "AuthorName",
-                table: "Posts");
-
             migrationBuilder.AddColumn<int>(
                 name: "AuthorId",
                 table: "Posts",
                 type: "INTEGER",
-                nullable: false,
+                nullable: true,
                 defaultValue: 0);
 
             migrationBuilder.CreateTable(
@@ -29,6 +26,8 @@ namespace SampleDatabase.Migrations
                 {
                     table.PrimaryKey("PK_Author", x => x.Id);
                 });
+
+            migrationBuilder.Sql(File.ReadAllText("./Migrations/Scripts/migrate-author-up.sql"));
 
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_AuthorId",
@@ -46,26 +45,26 @@ namespace SampleDatabase.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Posts_Author_AuthorId",
-                table: "Posts");
+            migrationBuilder.Sql(File.ReadAllText("./Migrations/Scripts/migrate-author-down.sql"));
 
-            migrationBuilder.DropTable(
-                name: "Author");
+            //migrationBuilder.DropForeignKey(
+            //    name: "FK_Posts_Author_AuthorId",
+            //    table: "Posts");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Posts_AuthorId",
-                table: "Posts");
+            //migrationBuilder.DropIndex(
+            //    name: "IX_Posts_AuthorId",
+            //    table: "Posts");
 
-            migrationBuilder.DropColumn(
-                name: "AuthorId",
-                table: "Posts");
+            //migrationBuilder.DropColumn(
+            //    name: "AuthorId",
+            //    table: "Posts");
 
-            migrationBuilder.AddColumn<string>(
-                name: "AuthorName",
-                table: "Posts",
-                type: "TEXT",
-                nullable: true);
+            //migrationBuilder.Sql("delete from Author");
+
+            //migrationBuilder.DropTable(
+            //    name: "Author");
+
+
         }
     }
 }

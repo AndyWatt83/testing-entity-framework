@@ -9,7 +9,7 @@ using SampleDatabase.Context;
 namespace SampleDatabase.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    [Migration("20210204220005_author-table")]
+    [Migration("20210205001332_author-table")]
     partial class authortable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,6 +57,9 @@ namespace SampleDatabase.Migrations
 
                     b.Property<int>("AuthorId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("AuthorName")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("BlogId")
                         .HasColumnType("INTEGER");
