@@ -22,10 +22,10 @@
     <None Update="Migrations\Scripts\inital-data.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Migrations\Scripts\migrate-author-down.sql">
+    <None Update="Migrations\Scripts\author-table-down.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Migrations\Scripts\migrate-author-up.sql">
+    <None Update="Migrations\Scripts\author-table-up.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

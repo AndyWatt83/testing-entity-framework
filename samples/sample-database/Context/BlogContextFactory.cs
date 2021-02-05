@@ -8,7 +8,7 @@ namespace SampleDatabase.Context
         public BlogContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BlogContext>();
-            optionsBuilder.UseSqlite("Data Source=Database/blogging.db");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Username=local_dev;Password=local_dev;Database=blogging_demo");
 
             return new BlogContext(optionsBuilder.Options);
         }
