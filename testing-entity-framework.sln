@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testing-entity-framework", "testing-entity-framework.csproj", "{732F21A1-AA5C-4394-A534-B79E13C4E42A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sample-database", ".\samples\sample-database\sample-database.csproj", "{011CEEF9-1AA4-4F74-AF79-2227BD337BB2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sample-database", "..\samples\sample-database\sample-database.csproj", "{011CEEF9-1AA4-4F74-AF79-2227BD337BB2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample-database.test", "..\samples\sample-database.test\sample-database.test.csproj", "{B5C78174-312E-4986-854B-737B6D826D71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample-database.test", ".\samples\sample-database.test\sample-database.test.csproj", "{B5C78174-312E-4986-854B-737B6D826D71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{732F21A1-AA5C-4394-A534-B79E13C4E42A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{732F21A1-AA5C-4394-A534-B79E13C4E42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{732F21A1-AA5C-4394-A534-B79E13C4E42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{732F21A1-AA5C-4394-A534-B79E13C4E42A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{011CEEF9-1AA4-4F74-AF79-2227BD337BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{011CEEF9-1AA4-4F74-AF79-2227BD337BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{011CEEF9-1AA4-4F74-AF79-2227BD337BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU

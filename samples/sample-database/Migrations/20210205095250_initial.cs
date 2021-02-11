@@ -49,7 +49,7 @@ namespace SampleDatabase.Migrations
                 table: "Posts",
                 column: "BlogId");
 
-            migrationBuilder.Sql(File.ReadAllText("./Migrations/Scripts/initial-data.sql"));
+            // migrationBuilder.Sql(File.ReadAllText("./Migrations/Scripts/initial-data.sql"));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
