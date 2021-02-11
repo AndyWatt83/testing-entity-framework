@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+﻿using System;
 using System.IO;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace SampleDatabase.Migrations
 {
@@ -31,7 +32,8 @@ namespace SampleDatabase.Migrations
                     Title = table.Column<string>(type: "text", nullable: true),
                     Content = table.Column<string>(type: "text", nullable: true),
                     BlogId = table.Column<int>(type: "integer", nullable: false),
-                    AuthorName = table.Column<string>(type: "text", nullable: true)
+                    AuthorName = table.Column<string>(type: "text", nullable: true),
+                    Date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -49,7 +51,7 @@ namespace SampleDatabase.Migrations
                 table: "Posts",
                 column: "BlogId");
 
-            // migrationBuilder.Sql(File.ReadAllText("./Migrations/Scripts/initial-data.sql"));
+            migrationBuilder.Sql(File.ReadAllText("./Migrations/Scripts/initial-data.sql"));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

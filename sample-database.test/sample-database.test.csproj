@@ -29,6 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Scripts\author-table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Scripts\initial-data.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -6,9 +6,7 @@ namespace SampleDatabase.Context
     public class BlogContext : DbContext
     {
         public BlogContext(DbContextOptions<BlogContext> options) : base(options)
-        {
-
-        }
+        { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         { }

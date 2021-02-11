@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SampleDatabase.Context;
@@ -9,30 +10,16 @@ using SampleDatabase.Context;
 namespace SampleDatabase.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20210211205929_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.1");
-
-            modelBuilder.Entity("SampleDatabase.Entities.Author", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
-
-                    b.Property<string>("DisplayName")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Authors");
-                });
+                .HasAnnotation("ProductVersion", "5.0.2");
 
             modelBuilder.Entity("SampleDatabase.Entities.Blog", b =>
                 {
@@ -59,8 +46,8 @@ namespace SampleDatabase.Migrations
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("integer");
+                    b.Property<string>("AuthorName")
+                        .HasColumnType("text");
 
                     b.Property<int>("BlogId")
                         .HasColumnType("integer");
@@ -76,8 +63,6 @@ namespace SampleDatabase.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
-
                     b.HasIndex("BlogId");
 
                     b.ToTable("Posts");
@@ -85,26 +70,13 @@ namespace SampleDatabase.Migrations
 
             modelBuilder.Entity("SampleDatabase.Entities.Post", b =>
                 {
-                    b.HasOne("SampleDatabase.Entities.Author", "Author")
-                        .WithMany("Posts")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SampleDatabase.Entities.Blog", "Blog")
                         .WithMany("Posts")
                         .HasForeignKey("BlogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Author");
-
                     b.Navigation("Blog");
-                });
-
-            modelBuilder.Entity("SampleDatabase.Entities.Author", b =>
-                {
-                    b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("SampleDatabase.Entities.Blog", b =>

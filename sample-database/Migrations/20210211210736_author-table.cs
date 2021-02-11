@@ -8,8 +8,6 @@ namespace SampleDatabase.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
-
             migrationBuilder.AddColumn<int>(
                 name: "AuthorId",
                 table: "Posts",
