@@ -55,8 +55,8 @@ namespace SampleDatabase.Test
             // Before the migration is run, the 'AuthorName' column should be present
             using (var connection = new NpgsqlConnection(_connectionString))
             {
-                var actual = connection.Query<string>(@"select column_name from information_schema.columns where table_name = 'Posts'");
-                actual.Should().Contain("AuthorName");
+                var columnNames = connection.Query<string>(@"select column_name from information_schema.columns where table_name = 'Posts'");
+                columnNames.Should().Contain("AuthorName");
             }
 
             // Run the 'Up' migration
@@ -73,9 +73,9 @@ namespace SampleDatabase.Test
             // Before the migration is run, the 'AuthorName' column should be changed to 'AuthorId'
             using (var connection = new NpgsqlConnection(_connectionString))
             {
-                var actual = connection.Query<string>(@"select column_name from information_schema.columns where table_name = 'Posts'");
-                actual.Should().Contain("AuthorId");
-                actual.Should().NotContain("AuthorName");
+                var columnNames = connection.Query<string>(@"select column_name from information_schema.columns where table_name = 'Posts'");
+                columnNames.Should().Contain("AuthorId");
+                columnNames.Should().NotContain("AuthorName");
             }
 
             // Run the 'Down' Migration
