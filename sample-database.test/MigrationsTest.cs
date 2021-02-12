@@ -59,7 +59,7 @@ namespace SampleDatabase.Test
                 actual.Should().Contain("AuthorName");
             }
 
-            // Set the migration
+            // Run the 'Up' migration
             await this.DatabaseFixture.SetMigration("author-table");
 
             // Check that the new Authors table contains the correct data
@@ -77,6 +77,20 @@ namespace SampleDatabase.Test
                 actual.Should().Contain("AuthorId");
                 actual.Should().NotContain("AuthorName");
             }
+
+            // Run the 'Down' Migration
+            await this.DatabaseFixture.SetMigration("initial");
+
+            // Make sure the data is correct after the down migration
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                var actual = connection.Query<string>(@"select ""AuthorName"" from ""Posts""");
+                var expected = new[] { "Andy Watt", "Andy Watt", "Richard Whiteley", "Carol Vorderman" };
+                actual.Should().BeEquivalentTo(expected);
+            }
+
+            // Run the 'Up' migration again
+            await this.DatabaseFixture.SetMigration("author-table");
         }
     }
 }
